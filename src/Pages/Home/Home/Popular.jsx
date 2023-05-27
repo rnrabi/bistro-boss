@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../Components/SectionTitle";
-import PopularItem from "./PopularItem";
+import PopularItem from "../../../Shared/PopularItem";
+
 
 
 const Popular = () => {
@@ -29,6 +30,7 @@ const Popular = () => {
             ></PopularItem>)
            }
         </div>
+        <button className="btn btn-outline border-0 border-b-4 mx-auto block my-5">View Full Menu</button>
        </section>
     );
 };

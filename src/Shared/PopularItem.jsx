@@ -1,5 +1,3 @@
-
-
 const PopularItem = ({ itm }) => {
     const { name, image, price, category, recipe } = itm;
     return (

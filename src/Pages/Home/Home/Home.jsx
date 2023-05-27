@@ -1,4 +1,5 @@
 import Bannar from "./Bannar";
+import CardItem from "./CardItem";
 import OrderSlider from "./OrderSlider";
 import Popular from "./Popular";
 
@@ -10,6 +11,7 @@ const Home = () => {
            <Bannar></Bannar>
            <OrderSlider></OrderSlider>
            <Popular></Popular>
+           <CardItem></CardItem>
             <h2>This is home page</h2>
            
         </div>
