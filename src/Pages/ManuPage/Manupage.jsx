@@ -28,6 +28,7 @@ const Manupage = () => {
             <MenuCategory
                 item={offered}
                 btnChild={"Order Your Favourit Food"}
+                title={"offered"}
             ></MenuCategory>
 
             <Cover
@@ -37,6 +38,7 @@ const Manupage = () => {
             <MenuCategory
                 item={dessert}
                 btnChild={"Order Your Favourit Food"}
+                title={"dessert"}
             ></MenuCategory>
 
             <Cover
@@ -46,6 +48,7 @@ const Manupage = () => {
             <MenuCategory
                 item={pizza}
                 btnChild={"Order Your Favourit Food"}
+                title={"pizza"}
             ></MenuCategory>
             <Cover
                 img={bg3}
@@ -54,6 +57,7 @@ const Manupage = () => {
             <MenuCategory
                 item={salad}
                 btnChild={"Order Your Favourit Food"}
+                title={"salad"}
             ></MenuCategory>
             <Cover
                 img={bg4}
@@ -62,6 +66,7 @@ const Manupage = () => {
             <MenuCategory
                 item={soup}
                 btnChild={"Order Your Favourit Food"}
+                title={"soup"}
             ></MenuCategory>
 
 

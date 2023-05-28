@@ -27,6 +27,7 @@ const Popular = () => {
         </div>
            <Button
             btnChildren={"View Full Menu"}
+            title={'offered'}
            ></Button>
 
         {/* <button className="btn btn-outline border-0 border-b-4 mx-auto block my-5">View Full Menu</button> */}

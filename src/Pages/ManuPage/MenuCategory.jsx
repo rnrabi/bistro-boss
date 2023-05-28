@@ -1,7 +1,8 @@
-import Button from "../../Components/Button";
-import PopularItem from "../../Shared/PopularItem";
 
-const MenuCategory = ({item , btnChild}) => {
+import PopularItem from "../../Shared/PopularItem";
+import {Link} from "react-router-dom"
+
+const MenuCategory = ({ item, btnChild , title }) => {
     return (
         <div>
             <div className="grid md:grid-cols-2 gap-4">
@@ -11,9 +12,12 @@ const MenuCategory = ({item , btnChild}) => {
                         itm={itm}
                     ></PopularItem>)
                 }
-                <Button
+                {/* <Button
                 btnChildren={btnChild}
-                ></Button>
+                ></Button> */}
+                <Link to={`/order/${title}`}>
+                    <button className="btn btn-outline border-0 border-b-4 mx-auto block my-5">{btnChild}</button>
+                </Link>
 
             </div>
         </div>

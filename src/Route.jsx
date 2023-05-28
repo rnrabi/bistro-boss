@@ -23,6 +23,10 @@ import OrderPage from "./Pages/OrderPage/OrderPage";
         {
           path:'/order',
           element:<OrderPage></OrderPage>
+        },
+        {
+          path:'/order/:category',
+          element:<OrderPage></OrderPage>
         }
       ]
     },
