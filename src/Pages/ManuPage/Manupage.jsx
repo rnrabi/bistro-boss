@@ -1,36 +1,70 @@
 import Cover from "../../Components/Cover";
+import SectionTitle from "../../Components/SectionTitle";
+import useMenu from "../../Hooks/useMenu";
 import bg1 from "../../assets/dessert-bg.jpeg";
 import bg2 from "../../assets/pizza-bg.jpg";
 import bg3 from "../../assets/salad-bg.jpg";
 import bg4 from "../../assets/soup-bg.jpg";
-import Popular from "../Home/Home/Popular";
+import MenuCategory from "./MenuCategory";
 
 const Manupage = () => {
+    const [menu] = useMenu();
+    const offered = menu.filter(item => item.category === "offered");
+    const dessert = menu.filter(item => item.category === 'dessert');
+    const pizza = menu.filter(item => item.category === 'pizza');
+    const salad = menu.filter(item => item.category === 'salad');
+    const soup = menu.filter(item => item.category === 'soup');
+
     return (
         <div>
             <Cover
-             img={bg1}
-             title={'OUR MENU'}
+                img={bg1}
+                title={'OUR MENU'}
             ></Cover>
-           <Popular></Popular>
+            <SectionTitle
+                subHeading={"Don't miss"}
+                heading={"today's offer"}
+            ></SectionTitle>
+            <MenuCategory
+                item={offered}
+                btnChild={"Order Your Favourit Food"}
+            ></MenuCategory>
 
             <Cover
-             img={bg2}
-             title={'OUR MENU'}
+                img={bg2}
+                title={"Dessert's"}
             ></Cover>
-           <Popular></Popular>
+            <MenuCategory
+                item={dessert}
+                btnChild={"Order Your Favourit Food"}
+            ></MenuCategory>
 
             <Cover
-             img={bg3}
-             title={'OUR MENU'}
+                img={bg2}
+                title={"Pizza"}
             ></Cover>
-           <Popular></Popular>
-
+            <MenuCategory
+                item={pizza}
+                btnChild={"Order Your Favourit Food"}
+            ></MenuCategory>
             <Cover
-             img={bg4}
-             title={'OUR MENU'}
+                img={bg3}
+                title={"Salad"}
             ></Cover>
-           <Popular></Popular>
+            <MenuCategory
+                item={salad}
+                btnChild={"Order Your Favourit Food"}
+            ></MenuCategory>
+            <Cover
+                img={bg4}
+                title={"Soups"}
+            ></Cover>
+            <MenuCategory
+                item={soup}
+                btnChild={"Order Your Favourit Food"}
+            ></MenuCategory>
+
+
         </div>
     );
 };

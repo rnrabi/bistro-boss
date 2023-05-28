@@ -2,6 +2,7 @@
 import SectionTitle from "../../../Components/SectionTitle";
 import PopularItem from "../../../Shared/PopularItem";
 import useMenu from "../../../Hooks/useMenu";
+import Button from "../../../Components/Button";
 
 
 
@@ -24,7 +25,12 @@ const Popular = () => {
             ></PopularItem>)
            }
         </div>
-        <button className="btn btn-outline border-0 border-b-4 mx-auto block my-5">View Full Menu</button>
+           <Button
+            btnChildren={"View Full Menu"}
+           ></Button>
+
+        {/* <button className="btn btn-outline border-0 border-b-4 mx-auto block my-5">View Full Menu</button> */}
+
        </section>
     );
 };
