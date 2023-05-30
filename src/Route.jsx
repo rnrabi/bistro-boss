@@ -23,7 +23,7 @@ import SignUp from "./Pages/Login/SignPu/SignUp";
           element:<Manupage></Manupage>
         },
         {
-          path:'/order',
+          path:'/order/salad',
           element:<OrderPage></OrderPage>
         },
         {

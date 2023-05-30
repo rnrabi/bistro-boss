@@ -1,24 +1,34 @@
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import {useContext} from "react";
+import { useForm } from 'react-hook-form';
 
 const SignUp = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+
     const {signUp}=useContext(AuthContext);
 
- const handleSignUp = event =>{
-    event.preventDefault();
-    const form =event.target;
-    const name=form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    signUp(email , password)
-    .then(result =>{
-        const user = result.user;
-        console.log(user)
-    })
-    .catch(error =>{
-        console.log(error.message)
-    })
- }
+    
+
+//  const handleSignUp = event =>{
+//     event.preventDefault();
+//     const form =event.target;
+//     const name=form.name.value;
+//     const email = form.email.value;
+//     const password = form.password.value;
+//     console.log(name, email, password)
+//     signUp(email , password)
+//     .then(result =>{
+//         const user = result.user;
+//         console.log(user)
+//     })
+//     .catch(error =>{
+//         console.log(error.message)
+//     })
+//  }
 
 
     return (
@@ -28,17 +38,18 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Sign now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSignUp} className="card-body">
+                    <form onSubmit={handleSubmit((data) => console.log(data))} className="card-body">
 
                         <div className="form-control">
-                            <input type="text" placeholder="name" name="name"className="input input-bordered" />
+                            <input type="text" placeholder="name" {...register('name', { required: true })} name="name"className="input input-bordered" />
+                            {errors.name && <p> name is required.</p>}
                         </div>
                         <div className="form-control">
-                            <input type="text" placeholder="email" name="email"className="input input-bordered" />
+                            <input type="text" placeholder="email" {...register('email')}name="email"className="input input-bordered" />
                         </div>
 
                         <div className="form-control">
-                            <input type="password" placeholder="password" name="password"className="input input-bordered" />
+                            <input type="password" placeholder="password" {...register('password')}name="password"className="input input-bordered" />
                         </div>
 
                         <div className="form-control mt-6">

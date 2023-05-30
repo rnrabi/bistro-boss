@@ -15,7 +15,7 @@ const Navber = () => {
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to='/'>Home</Link></li>
-                    <li> <Link to='/order'>Order Food</Link></li>
+                    <li> <Link to='/order/salad'>Order Food</Link></li>
                     <li> <Link to='/menu'>Menu</Link></li>
                     {
                         user ? <li> <button onClick={handleLogOut}>Log Out</button></li> : <>
