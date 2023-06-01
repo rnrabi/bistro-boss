@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState , useContext} from 'react';
+import { useEffect, useState , useContext} from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate ,validateCaptcha} from 'react-simple-captcha';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+
 
 const Login = () => {
     const {logIn} =useContext(AuthContext)
@@ -18,6 +20,17 @@ const Login = () => {
     .then(result=>{
         const logedUser =result.user;
         console.log(logedUser)
+
+        Swal.fire({
+            title: 'log in success full',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+
     })
     .catch(error =>{
         console.log(error.message)
@@ -26,9 +39,9 @@ const Login = () => {
  }
 
 
- const capchaInput= useRef(null);
- const validate =()=>{
-    const user_captcha_value =capchaInput.current.value;
+//  const capchaInput= useRef(null);
+ const validate =(event)=>{
+    const user_captcha_value =event.target.value;
     // console.log(capchaValue)
     if (validateCaptcha(user_captcha_value)==true) {
         setDisabled(false)
@@ -63,10 +76,9 @@ const Login = () => {
 
                                 <LoadCanvasTemplate />
                                 <div className="form-control">
-                                    <input type="text" ref={capchaInput} placeholder="type above capcha" className="input input-bordered" />
+                                    <input onBlur={validate} type="text" placeholder="type above capcha" className="input input-bordered" />
                                 </div>
                             </div>
-                            <button onClick={validate} className="btn btn-block">validate</button>
 
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" disabled={disabled}  type="submit" value="Login" />

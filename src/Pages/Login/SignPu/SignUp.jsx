@@ -11,7 +11,17 @@ const SignUp = () => {
 
     const {signUp}=useContext(AuthContext);
 
-    
+    const onSubmit = data => {
+        console.log(data);
+        signUp(data.email , data.password)
+            .then(result =>{
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error =>{
+                console.log(error.message)
+            })
+    }
 
 //  const handleSignUp = event =>{
 //     event.preventDefault();
@@ -38,11 +48,11 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Sign now!</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleSubmit((data) => console.log(data))} className="card-body">
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                         <div className="form-control">
                             <input type="text" placeholder="name" {...register('name', { required: true })} name="name"className="input input-bordered" />
-                            {errors.name && <p> name is required.</p>}
+                            {errors.name && <p className="text-red-600"> name is required.</p>}
                         </div>
                         <div className="form-control">
                             <input type="text" placeholder="email" {...register('email')}name="email"className="input input-bordered" />
